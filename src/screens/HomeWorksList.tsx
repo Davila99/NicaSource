@@ -4,22 +4,20 @@ import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 const HomeWorksList = () => {
 
     const [tareas, setTareas] = useState('')
-
-
     const lista = ['pigs', 'goats', 'sheep'];
-    const [usuarios, setUsuarios] = useState([
-        {
-            "id": 1,
-            "name": tareas,
-        }
 
-    ])
+    const [usuarios, setUsuarios] = useState([])
 
     const crearTarea = () => {
-        lista.push(tareas)
-        // alert(lista)
-    }
+        const form = {
+            "id": 1,
+            "tareas": tareas
+        }
 
+    }
+    const obtenerTareas = () => {
+
+    }
     const eliminarTweet = () => {
 
     }
@@ -38,7 +36,7 @@ const HomeWorksList = () => {
                 {
                     usuarios.map(tweet => (
                         <View key={tweet.id} style={styles.constainer}>
-                            <Text>{tweet.name}</Text>
+                            <Text>{tweet.tareas}</Text>
                             <View>
                                 {/* <Button
                                     title="Eliminar"
