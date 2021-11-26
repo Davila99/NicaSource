@@ -14,7 +14,7 @@ const Stack = createNativeStackNavigator<MainStackParamList>();
 
 const MainStackNavigator = () => {
     return (
-        <Stack.Navigator initialRouteName="HomeWorksList">
+        <Stack.Navigator initialRouteName="HomeNica">
         <Stack.Screen
             name="HomeNica"
             component={HomeNica}

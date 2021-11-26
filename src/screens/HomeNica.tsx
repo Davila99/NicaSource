@@ -5,24 +5,21 @@ import FormInputs from '../Components/FormInputs'
 
 
 
-const HomeNica = () => {
+const HomeNica = ({ navigation }) => {
 
     const [user, setUser] = useState('')
     const [password, setPassword] = useState('')
 
-
     const validarDatos = () => {
-      
-        if (user==="eliseo" && password==="davila") {
-            
-            alert('Hola') 
+
+        if (user === 'eliseo' && password === 'davila') {
+            navigation.navigate('HomeWorksList')
+        } else {
+            alert('Contraseña Incorrecta')
         }
     }
-
     return (
         <View style={styles.container}>
-
-
             <FormInputs
                 title="Usuario"
                 defaultValue={user}
@@ -60,9 +57,9 @@ const styles = StyleSheet.create({
         paddingLeft: 24,
         paddingRight: 24,
     },
-    button:{
+    button: {
         paddingTop: 50,
-        
+
     }
 
 })

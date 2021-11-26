@@ -7,10 +7,21 @@ const HomeWorksList = () => {
 
 
     const lista = ['pigs', 'goats', 'sheep'];
+    const [usuarios, setUsuarios] = useState([
+        {
+            "id": 1,
+            "name": tareas,
+        }
+
+    ])
 
     const crearTarea = () => {
         lista.push(tareas)
-        alert(lista)
+        // alert(lista)
+    }
+
+    const eliminarTweet = () => {
+
     }
     return (
         <View style={{ flex: 1, alignItems: 'center' }}>
@@ -24,12 +35,19 @@ const HomeWorksList = () => {
                     title="Agregar"
                     onPress={() => crearTarea()}
                 />
-                <View >
-
-                </View>
                 {
-                    lista.map(user => (
-                        <Text > hola {user.lista}</Text>
+                    usuarios.map(tweet => (
+                        <View key={tweet.id} style={styles.constainer}>
+                            <Text>{tweet.name}</Text>
+                            <View>
+                                {/* <Button
+                                    title="Eliminar"
+                                    onPress={() => eliminarTweet(tweet.id)}
+                                /> */}
+
+                            </View>
+
+                        </View>
                     ))
                 }
             </View>
@@ -61,7 +79,7 @@ const styles = StyleSheet.create({
         marginTop: 20
     },
     text: {
-
+        fontSize: 20
     }
 
 })
