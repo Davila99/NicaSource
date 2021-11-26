@@ -15,8 +15,7 @@ const HomeNica = () => {
       
         if (user==="eliseo" && password==="davila") {
             
-            alert('Hola')
-            
+            alert('Hola') 
         }
     }
 

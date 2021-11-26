@@ -22,7 +22,17 @@ const MainStackNavigator = () => {
         <Stack.Screen
             name="HomeWorksList"
             component={HomeWorksList}
-            options={{ title: 'Tareas' }}
+            options={{ title: 'Tareas',
+            headerStyle: {
+              backgroundColor: '#C4C4C4',
+              
+            },
+            headerTintColor: '#000000',
+            
+            headerTitleStyle: {
+              fontWeight: 'bold',
+             
+            }, }}
              />
     </Stack.Navigator>
     )
