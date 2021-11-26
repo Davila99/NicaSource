@@ -14,14 +14,16 @@ const Stack = createNativeStackNavigator<MainStackParamList>();
 
 const MainStackNavigator = () => {
     return (
-        <Stack.Navigator initialRouteName="HomeNica">
+        <Stack.Navigator initialRouteName="HomeWorksList">
         <Stack.Screen
             name="HomeNica"
             component={HomeNica}
             options={{ title: 'Inicio' }} />
         <Stack.Screen
             name="HomeWorksList"
-            component={HomeWorksList} />
+            component={HomeWorksList}
+            options={{ title: 'Tareas' }}
+             />
     </Stack.Navigator>
     )
 }
