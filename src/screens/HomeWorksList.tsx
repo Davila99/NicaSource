@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 
 const HomeWorksList = () => {
@@ -11,18 +11,18 @@ const HomeWorksList = () => {
 
     const getTareas = ()=>{
         const tareas= lista
-        
         setTweetsData(tareas)
     }
     const crearTarea = () => {
         const newTaras = tareas
-        lista.push(newTaras)
+        tweetsData.push(newTaras)
     }
     const eliminarTweet = (id: number) => {
-        alert(lista)
-        lista.splice(id, 1)
+        alert(tweetsData)
+        tweetsData.splice(id, 1)
         
     }
+    useEffect(getTareas, [])
  
     return (
         <View style={{ flex: 1, alignItems: 'center' }}>
@@ -40,9 +40,9 @@ const HomeWorksList = () => {
             </View>
   
                 {
-                    lista.map(tweet => (
-                        <View key={tweet.id} style={styles.constainer}>
-                            <Text>{tweet.lista} </Text>
+                    tweetsData.map(tweet => (
+                        <View style={styles.constainer}>
+                            <Text>{tweet} </Text>
                             <View>
                                 <Button
                                     title="Eliminar"
