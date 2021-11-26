@@ -4,23 +4,26 @@ import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 const HomeWorksList = () => {
 
     const [tareas, setTareas] = useState('')
-    const lista = ['pigs', 'goats', 'sheep'];
+    const lista = ["Item 1", "Item 2", "Item 3",""];
+    const [tweetsData, setTweetsData] = useState([""])
 
-    const [usuarios, setUsuarios] = useState([])
 
+
+    const getTareas = ()=>{
+        const tareas= lista
+        
+        setTweetsData(tareas)
+    }
     const crearTarea = () => {
-        const form = {
-            "id": 1,
-            "tareas": tareas
-        }
-
+        const newTaras = tareas
+        lista.push(newTaras)
     }
-    const obtenerTareas = () => {
-
+    const eliminarTweet = (id: number) => {
+        alert(lista)
+        lista.splice(id, 1)
+        
     }
-    const eliminarTweet = () => {
-
-    }
+ 
     return (
         <View style={{ flex: 1, alignItems: 'center' }}>
             <View style={styles.constainer}>
@@ -33,23 +36,26 @@ const HomeWorksList = () => {
                     title="Agregar"
                     onPress={() => crearTarea()}
                 />
+             
+            </View>
+  
                 {
-                    usuarios.map(tweet => (
+                    lista.map(tweet => (
                         <View key={tweet.id} style={styles.constainer}>
-                            <Text>{tweet.tareas}</Text>
+                            <Text>{tweet.lista} </Text>
                             <View>
-                                {/* <Button
+                                <Button
                                     title="Eliminar"
                                     onPress={() => eliminarTweet(tweet.id)}
-                                /> */}
+                                />
 
                             </View>
 
                         </View>
                     ))
                 }
-            </View>
-            <Text>{ }</Text>
+
+ 
 
         </View>
     )
