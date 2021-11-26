@@ -15,7 +15,8 @@ const HomeWorksList = () => {
     }
     const crearTarea = () => {
         const newTaras = tareas
-        tweetsData.push(newTaras)
+        lista.push(newTaras)
+        // tweetsData.push(newTaras)
     }
     const eliminarTweet = (id: number) => {
         alert(tweetsData)
