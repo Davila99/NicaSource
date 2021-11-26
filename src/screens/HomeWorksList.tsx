@@ -1,30 +1,32 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 
 const HomeWorksList = () => {
 
     const [tareas, setTareas] = useState('')
-    const lista = ["Item 1", "Item 2", "Item 3",""];
-    const [tweetsData, setTweetsData] = useState([""])
+    let lista: string[] = [
+        "Iron Man",
+        "Spiderman",
+        "Spiderman"
+    ];
+     
+    const [tweetsData, setTweetsData] = useState([''])
 
-
-
-    const getTareas = ()=>{
-        const tareas= lista
-        setTweetsData(tareas)
+    const getTareas = () => {
+        setTweetsData(lista)
     }
     const crearTarea = () => {
         const newTaras = tareas
         lista.push(newTaras)
-        // tweetsData.push(newTaras)
+        getTareas()
     }
     const eliminarTweet = (id: number) => {
         alert(tweetsData)
-        tweetsData.splice(id, 1)
-        
+        lista.splice(id, 1)
+        getTareas()
     }
-    useEffect(getTareas, [])
- 
+    useEffect(getTareas, [setTareas])
+
     return (
         <View style={{ flex: 1, alignItems: 'center' }}>
             <View style={styles.constainer}>
@@ -37,26 +39,26 @@ const HomeWorksList = () => {
                     title="Agregar"
                     onPress={() => crearTarea()}
                 />
-             
-            </View>
-  
-                {
-                    tweetsData.map(tweet => (
-                        <View style={styles.constainer}>
-                            <Text>{tweet} </Text>
-                            <View>
-                                <Button
-                                    title="Eliminar"
-                                    onPress={() => eliminarTweet(tweet.id)}
-                                />
 
-                            </View>
+            </View>
+
+            {
+                tweetsData.map(tweet => (
+                    <View style={styles.constainer}>
+                        <Text>{tweet} </Text>
+                        <View>
+                            <Button
+                                title="Eliminar"
+                                onPress={() => eliminarTweet(tweet.id)}
+                            />
 
                         </View>
-                    ))
-                }
 
- 
+                    </View>
+                ))
+            }
+
+
 
         </View>
     )
