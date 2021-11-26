@@ -1,11 +1,28 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import HomeNica from '../screens/HomeNica';
+import HomeWorksList from '../screens/HomeWorksList';
+
+export type MainStackParamList = {
+    HomeNica: undefined;
+    HomeWorksList: { id: number, tweet_text: string };
+
+};
+
+const Stack = createNativeStackNavigator<MainStackParamList>();
 
 const MainStackNavigator = () => {
     return (
-        <View>
-            <Text></Text>
-        </View>
+        <Stack.Navigator initialRouteName="HomeNica">
+        <Stack.Screen
+            name="HomeNica"
+            component={HomeNica}
+            options={{ title: 'Inicio' }} />
+        <Stack.Screen
+            name="HomeWorksList"
+            component={HomeWorksList} />
+    </Stack.Navigator>
     )
 }
 
