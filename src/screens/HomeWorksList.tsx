@@ -4,29 +4,25 @@ import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 const HomeWorksList = () => {
 
     const [tareas, setTareas] = useState('')
-    let lista: string[] = [
-        "Iron Man",
-        "Spiderman",
-        "Spiderman"
-    ];
-     
     const [tweetsData, setTweetsData] = useState([''])
-
-    const getTareas = () => {
-        setTweetsData(lista)
+    let lista: string[] = [
+        "Hola",
+        "Peror",
+        "Hjb"
+    ];
+    const getDatos = () => {
+        setTweetsData(lista);
     }
     const crearTarea = () => {
-        const newTaras = tareas
-        lista.push(newTaras)
-        getTareas()
+        tweetsData.push(tareas)
     }
     const eliminarTweet = (id: number) => {
         alert(tweetsData)
-        lista.splice(id, 1)
-        getTareas()
+        tweetsData.splice(id, 1)
     }
-    useEffect(getTareas, [setTareas])
-
+    useEffect(() => {
+        getDatos()
+    }, [])
     return (
         <View style={{ flex: 1, alignItems: 'center' }}>
             <View style={styles.constainer}>
@@ -88,5 +84,5 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 20
     }
-
-})
+}
+)
